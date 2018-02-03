@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>个人中心</h1>
+<h1>个人</h1>
 </body>
 </html>
