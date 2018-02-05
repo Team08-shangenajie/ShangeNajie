@@ -1,0 +1,25 @@
+[
+    { id: "front", text: "首页",},
+	{ id: "frontPage", pid: "front", text: "公司简介", url: "welcome" },
+
+
+	{ id: "user", text: "个人中心",},
+	{ id: "addUser", pid: "user", text: "个人工作平台", url: "personalCenter" },
+
+	{ id: "right", text: "综合管理",},
+    { id: "management", pid: "right", text: "管理", url: "manage" },
+
+	{ id: "science", text: "科研项目申报与评审"},
+    { id: "addRight", pid: "science", text: "科研项目申报与评审", url: "scienceProject" },
+    { id: "manageCon", pid: "science", text: "部门经理审批", url: "manageCon" },
+    { id: "engineer", pid: "science", text: "工程师、组织审核", url: "engineer" },
+    { id: "teamLeader", pid: "science", text: "评审小组组长填写评审意见", url: "teamLeader" },
+    { id: "stManage", pid: "science", text: "科技办经理审批", url: "stManage" },
+    { id: "finance", pid: "science", text: "财务部审批", url: "finance" },
+    { id: "generalMan", pid: "science", text: "总经理部审批", url: "generalMan" },
+
+    { id: "outScience", text: "承接外部科研项目申报"},
+    { id: "outRight", pid: "outScience", text: "承接外部科研项目申报", url: "outRight" },
+    { id: "examination", pid: "outScience", text: "审批", url: "examination" },
+    { id: "personalWork", pid: "outScience", text: "个人工作台", url: "personalWork" },
+]
