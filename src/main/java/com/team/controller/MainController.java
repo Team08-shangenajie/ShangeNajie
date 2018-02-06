@@ -16,10 +16,10 @@ import java.util.List;
  */
 @Controller
 public class MainController {
-//    @RequestMapping(value = "/home")
-//    public String home() {
-//        return "home";
-//    }
+    @RequestMapping(value = "/home")
+    public String home() {
+        return "home";
+    }
 
 
     @RequestMapping(value = {"", "/", "/index"})
@@ -37,12 +37,12 @@ public class MainController {
     @Resource
     private DepService depService;
 
-    @RequestMapping(value = "/home")
-    public String login1() {
-        staffService.insertStaff(staff);
-        return "home";
-
-    }
+//    @RequestMapping(value = "/home")
+//    public String login1() {
+//        staffService.insertStaff(staff);
+//        return "home";
+//
+//    }
 @RequestMapping(value = "/regist")
 @ResponseBody
     public List<Department> getDep() {
