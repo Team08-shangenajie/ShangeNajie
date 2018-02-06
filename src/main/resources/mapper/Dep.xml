@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.mapper.DepMapper">
+    <sql id="depColumns">
+        d.dep_id,
+                d.dep_name
+    </sql>
+
+    <sql id="staffColumns">
+        s.staff_id,s.staff_name,s.staff_pwd
+    </sql>
+    <resultMap id="staffAndDepMap" type="com.team.domain.Department">
+        <id property="depId" column="dep_id"/>
+        <result property="depName" column="dep_name"/>
+        <collection property="staffs"
+                    resultMap="staffMap">
+        </collection>
+    </resultMap>
+
+    <resultMap id="staffMap" type="com.team.domain.Staff">
+        <id property="staffId" column="staff_id"
+            javaType="java.lang.Integer"
+            jdbcType="INTEGER"/>
+        <result property="staffName" column="staff_name"/>
+        <result property="staffPwd" column="staff_pwd"/>
+    </resultMap>
+    <!--查询所有部门-->
+    <select id="selectAll"
+            resultMap="staffAndDepMap">
+        SELECT  * from Department
+    </select>
+    <select id="selectStaffAndDep" resultMap="staffAndDepMap">
+        SELECT
+        <include refid="depColumns"/>,
+        <include refid="staffColumns"/>
+        FROM Department  d LEFT  JOIN   Staff s ON d.dep_id = s.staff_id
+    </select>
+</mapper>
