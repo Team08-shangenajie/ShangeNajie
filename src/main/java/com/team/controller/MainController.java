@@ -1,5 +1,9 @@
 package com.team.controller;
 
+import com.team.domain.Department;
+import com.team.domain.Staff;
+import com.team.service.DepService;
+import com.team.service.StaffService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,8 +21,7 @@ public class MainController {
         return "home";
     }
 
-    @RequestMapping(value = {"","/"})
-    public String index() {
+
     @RequestMapping(value = {"", "/", "/index"})
     public String index() {
         return "index";
