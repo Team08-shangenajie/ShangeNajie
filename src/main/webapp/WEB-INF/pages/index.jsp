@@ -38,6 +38,7 @@
                 <td style="padding-top:5px;">
                     <a onclick="onLoginClick" class="mini-button" style="width:60px;">登录</a>
                     <a onclick="onResetClick" class="mini-button" style="width:60px;">重置</a>
+                    <a onclick="onRegistClick" class="mini-button" style="width:60px;">注册</a>
                 </td>
             </tr>
         </table>
@@ -67,9 +68,15 @@
         var form = new mini.Form("#loginWindow");
         form.clear();
     }
+    function onRegistClick(e) {
+        setTimeout(function () {
+            window.location = "regist";
+        }, 1000);
+
+    }
 
 </script>
-<a href="login">进入登录</a>
+
 
 </body>
 
