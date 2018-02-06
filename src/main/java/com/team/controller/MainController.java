@@ -16,10 +16,10 @@ import java.util.List;
  */
 @Controller
 public class MainController {
-    @RequestMapping(value = "/home")
-    public String home() {
-        return "home";
-    }
+//    @RequestMapping(value = "/home")
+//    public String home() {
+//        return "home";
+//    }
 
 
     @RequestMapping(value = {"", "/", "/index"})

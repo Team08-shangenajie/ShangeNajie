@@ -69,7 +69,7 @@
     <%--}--%>
 
 <%--</script>--%>
-<a href="login">进入班级列表</a>
+<a href="login">进入登录</a>
 
 </body>
 
