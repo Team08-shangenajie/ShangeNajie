@@ -7,7 +7,12 @@
 	{ id: "addUser", pid: "user", text: "个人工作平台", url: "personalCenter" },
 
 	{ id: "right", text: "综合管理",},
-    { id: "management", pid: "right", text: "管理", url: "manage" },
+    { id: "query", pid: "right", text: "综合查询", url: "query" },
+    { id: "satellite", pid: "right", text: "卫星库管理人管理", url: "satellite" },
+    { id: "ray", pid: "right", text: "射线探伤人员管理", url: "ray" },
+    { id: "workshop", pid: "right", text: "厂房管理", url: "workshop" },
+    { id: "unit", pid: "right", text: "机组管理", url: "unit" },
+
 
 	{ id: "science", text: "科研项目申报与评审"},
     { id: "addRight", pid: "science", text: "科研项目申报与评审", url: "scienceProject" },

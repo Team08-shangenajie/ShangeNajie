@@ -1,13 +1,23 @@
 package com.team.controller;
 
+import com.team.domain.BaseResult;
+import com.team.domain.Department;
+import com.team.service.DepService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * Created by dllo on 18/2/5.
  */
 @Controller
 public class MainController {
+
+    @Resource
+    private DepService depService;
+
     @RequestMapping(value = "/home")
     public String home() {
         return "home";
@@ -70,5 +80,41 @@ public class MainController {
     @RequestMapping(value = "/generalMan")
     public String generalMan(){
         return "generalMan";
+    }
+
+    @RequestMapping(value = "/query")
+    public String query(){
+        return "query";
+    }
+
+    @RequestMapping(value = "/satellite")
+    public String satellite(){
+        return "satellite";
+    }
+
+    @RequestMapping(value = "/ray")
+    public String ray(){
+        return "ray";
+    }
+
+    @RequestMapping(value = "/workshop")
+    public String workshop(){
+        return "workshop";
+    }
+
+    @RequestMapping(value = "/unit")
+    public String unit(){
+        return "unit";
+    }
+
+    @RequestMapping(value = "/selectCompany")
+    public String selectCompany(){
+        return "selectCompany";
+    }
+
+    @RequestMapping(value = "/selectDep")
+    @ResponseBody
+    public BaseResult<Department> selectStudent(int pageIndex, int pageSize, String key) {
+        return depService.select(pageIndex, pageSize, key);
     }
 }

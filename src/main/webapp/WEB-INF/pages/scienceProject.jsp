@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -74,7 +75,7 @@
                 </tr>
                 <tr>
                     <td style="width:120px">项目名称<font color="red">※</font></td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
                     <td style="width:120px">项目申报单位<font color="red">※</font></td>
@@ -82,14 +83,14 @@
                                class="mini-buttonedit"
                                allowInput="false"
                                onbuttonclick="onClazzButtonEdit"
-                               name="cid" textName="cname"/>
+                               name="depId" textName="depName"/>
                     </td>
                     <td style="width:120px">联合申报单位<font color="red">※</font></td>
                     <td><input id="btnEdit3" style="width: 100%"
                                class="mini-buttonedit"
                                allowInput="false"
                                onbuttonclick="onClazzButtonEdit"
-                               name="cid" textName="cname"/>
+                               name="depId" textName="depName"/>
                     </td>
                 </tr>
                 <tr>
@@ -246,24 +247,22 @@
 
 <script>
     mini.parse();
-    //审批(部门经理)弹出框的点击事件
     function onClazzButtonEdit(e) {
         //加载mini组件 后面的get方法才好用
         var btnEdit = this;
         mini.open({
-            url: "page/SelectGridWindow.html",
-            title: "选择班级",
+            url: "selectCompany",
+            title: "选择单位",
             width: 650,
             height: 380,
             ondestroy: function (action) {
-                //if (action == "close") return false;
                 if (action == "ok") {
                     var iframe = this.getIFrameEl();
                     var data = iframe.contentWindow.GetData();
-                    data = mini.clone(data);    //必须
+                    data = mini.clone(data);
                     if (data) {
-                        btnEdit.setValue(data.cid);
-                        btnEdit.setText(data.cname);
+                        btnEdit.setValue(data.depId);
+                        btnEdit.setText(data.depName);
                     }
                 }
 
