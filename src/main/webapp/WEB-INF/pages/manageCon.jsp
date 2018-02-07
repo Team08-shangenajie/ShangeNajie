@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -62,7 +63,7 @@
                 </tr>
                 <tr>
                     <td style="width:120px">项目名称</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
                     <td style="width:120px">项目申报单位</td>

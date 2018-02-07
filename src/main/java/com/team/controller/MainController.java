@@ -1,21 +1,23 @@
 package com.team.controller;
 
+import com.team.domain.BaseResult;
 import com.team.domain.Department;
-import com.team.domain.Staff;
 import com.team.service.DepService;
-import com.team.service.StaffService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by dllo on 18/2/5.
  */
 @Controller
 public class MainController {
+
+    @Resource
+    private DepService depService;
+
     @RequestMapping(value = "/home")
     public String home() {
         return "home";
@@ -26,46 +28,6 @@ public class MainController {
     public String index() {
         return "index";
     }
-    @RequestMapping(value = "/login")
-    public String login() {
-        return "login";
-    }
-
-    private Staff staff;
-    @Resource
-    private StaffService staffService;
-    @Resource
-    private DepService depService;
-
-//    @RequestMapping(value = "/home")
-//    public String login1() {
-//        staffService.insertStaff(staff);
-//        return "home";
-//
-//    }
-@RequestMapping(value = "/regist")
-@ResponseBody
-    public List<Department> getDep() {
-    return  depService.selectAll();
-//        return "regist";
-    }
-//    @RequestMapping(value = "/regist")
-//    @ResponseBody
-//    public String register(){
-//       staffService.insertStaff(staff);
-//        depService.selectAll();
-//        return "regist";
-//    }
-
-
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
-    }
-
     @RequestMapping(value = "/welcome")
     public String welcome(){
         return "welcome";
@@ -119,5 +81,41 @@ public class MainController {
     @RequestMapping(value = "/generalMan")
     public String generalMan(){
         return "generalMan";
+    }
+
+    @RequestMapping(value = "/query")
+    public String query(){
+        return "query";
+    }
+
+    @RequestMapping(value = "/satellite")
+    public String satellite(){
+        return "satellite";
+    }
+
+    @RequestMapping(value = "/ray")
+    public String ray(){
+        return "ray";
+    }
+
+    @RequestMapping(value = "/workshop")
+    public String workshop(){
+        return "workshop";
+    }
+
+    @RequestMapping(value = "/unit")
+    public String unit(){
+        return "unit";
+    }
+
+    @RequestMapping(value = "/selectCompany")
+    public String selectCompany(){
+        return "selectCompany";
+    }
+
+    @RequestMapping(value = "/selectDep")
+    @ResponseBody
+    public BaseResult<Department> selectStudent(int pageIndex, int pageSize, String key) {
+        return depService.select(pageIndex, pageSize, key);
     }
 }
