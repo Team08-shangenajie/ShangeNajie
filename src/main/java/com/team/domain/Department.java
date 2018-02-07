@@ -1,30 +1,17 @@
 package com.team.domain;
 
-import java.util.ArrayList;
-
 /**
  * Created by dllo on 18/2/6.
  */
 public class Department {
     private int depId;
     private String depName;
-    private int chiefld;
-    private ArrayList<Staff> staffs;
-
-    public ArrayList<Staff> getStaffs() {
-        return staffs;
-    }
-
-    public void setStaffs(ArrayList<Staff> staffs) {
-        this.staffs = staffs;
-    }
 
     public Department() {
     }
 
-    public Department(String depName, int chiefld) {
+    public Department(String depName) {
         this.depName = depName;
-        this.chiefld = chiefld;
     }
 
     @Override
@@ -32,7 +19,6 @@ public class Department {
         return "Department{" +
                 "depId=" + depId +
                 ", depName='" + depName + '\'' +
-                ", chiefld=" + chiefld +
                 '}';
     }
 
@@ -50,13 +36,5 @@ public class Department {
 
     public void setDepName(String depName) {
         this.depName = depName;
-    }
-
-    public int getChiefld() {
-        return chiefld;
-    }
-
-    public void setChiefld(int chiefld) {
-        this.chiefld = chiefld;
     }
 }

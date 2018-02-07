@@ -1,0 +1,4 @@
+[
+    { "id": "yes", "text": "是" ,tag:"shi"},
+    { "id": "no", "text": "否" ,tag:"fou"},
+]
