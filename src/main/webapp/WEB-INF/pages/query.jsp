@@ -41,7 +41,9 @@
                                name="a" textName="b" style="width: 100%">
                     </td>
                     <td>是否可以打印</td>
-                    <td><input id="print" name="print" class="mini-combobox" data="print" style="width: 100%"/></td>
+                    <td><input id="combo1" class="mini-combobox" style="width:150px;" textField="text"
+                               valueField="id" emptyText="请选择..." url="../text/print.txt" value=""
+                               allowInput="true" showNullItem="true" nullItemText="请选择..."/></td>
                 </tr>
                 <tr>
                     <td id="submit" colspan="6"><input type="submit" value="查询"/></td>
@@ -85,11 +87,8 @@
         if (value) return mini.formatDate(value, 'yyyy-MM-dd');
         return "";
     }
-    function onMarriedRenderer(e) {
-        if (e.value == 1) return "是";
-        else return "否";
-    }
-    var print = [{id: 1, text: '是'}, {id: 2, text: '否'}];
+
+
 
 
 </script>

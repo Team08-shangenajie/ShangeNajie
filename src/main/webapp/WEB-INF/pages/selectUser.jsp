@@ -14,13 +14,13 @@
 </head>
 <body>
 <div>
-    <h1>单位列表</h1>
+    <h1>用户列表</h1>
     <div style="width:100%;">
         <div class="mini-toolbar" style="border-bottom:0;padding:0px;">
             <table style="width:100%;">
                 <tr>
                     <td style="white-space:nowrap;">
-                        <input id="key" class="mini-textbox" emptyText="请输入单位名称" style="width:150px;"
+                        <input id="key" class="mini-textbox" emptyText="请输入用户名称" style="width:150px;"
                                onenter="onKeyEnter"/>
                         <a class="mini-button" onclick="search()">查询</a>
                     </td>
@@ -30,10 +30,10 @@
     </div>
 
     <div id="datagrid1" class="mini-datagrid" style="width:100%;height:280px;"
-         url="/selectDep" sizelist="[2,5,10]" onrowdblclick="onRowDblClick">
+         url="/selectU" sizelist="[2,5,10]" onrowdblclick="onRowDblClick">
         <div property="columns">
-            <div field="depId" width="120" headerAlign="center" allowSort="true">单位编号</div>
-            <div field="depName" width="120" headerAlign="center" allowSort="true">单位名称</div>
+            <div field="uid" width="120" headerAlign="center" allowSort="true">员工编号</div>
+            <div field="username" width="120" headerAlign="center" allowSort="true">员工姓名</div>
         </div>
     </div>
 </div>

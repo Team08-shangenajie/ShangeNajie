@@ -23,13 +23,13 @@
             <tr>
                 <td style="width:60px;">用户名：</td>
                 <td>
-                    <input id="staffName" name="staffName" class="mini-textbox" required="true" style="width:150px;"/>
+                    <input id="username" name="username" class="mini-textbox" required="true" style="width:150px;"/>
                 </td>
             </tr>
             <tr>
                 <td style="width:60px;">密码：</td>
                 <td>
-                    <input id="staffPwd" name="staffPwd" class="mini-password" requiredErrorText="密码不能为空"
+                    <input id="password" name="password" class="mini-password" requiredErrorText="密码不能为空"
                            required="true" style="width:150px;"/>
                 </td>
             </tr>
@@ -54,8 +54,9 @@
 
     function onLoginClick(e) {
         var form = new mini.Form("#loginWindow");
+        window.location = "login";
 
-        form.validate();
+//        form.validate();
         if (form.isValid() == false) return;
 
         loginWindow.hide();
@@ -64,6 +65,7 @@
             window.location = "home";
         }, 2000);
     }
+
     function onResetClick(e) {
         var form = new mini.Form("#loginWindow");
         form.clear();

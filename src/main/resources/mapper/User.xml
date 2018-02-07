@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.mapper.UserMapper">
+
+    <resultMap id="userMap"
+               type="com.team.domain.User">
+        <id property="uid" column="uid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <sql id="userColumns">
+        uid,username,password
+    </sql>
+
+    <select id="selectUserByUsername" parameterType="string" resultMap="userMap">
+        SELECT <include refid="userColumns"/> FROM USER
+        WHERE username= #{username}
+    </select>
+
+    <!--查询所有-->
+    <select id="selectUser"
+            parameterType="com.team.page.PageBean"
+            resultMap="userMap">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user
+        <if test="key != null and key != ''">
+            WHERE username LIKE '%${key}%'
+        </if>
+        limit #{startIndex},#{pageSize}
+    </select>
+    <select id="getTotalRecord"
+            resultType="java.lang.Integer">
+        SELECT COUNT(uid) FROM user
+        <if test="value != null and value != ''">
+            WHERE username LIKE '%${value}%'
+        </if>
+    </select>
+
+
+
+
+</mapper>
