@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.mapper.DivisionMapper">
+
+    <resultMap id="DvsMap"
+               type="com.team.domain.Division">
+        <id property="dsid" column="dsid"/>
+        <result property="dsname" column="dsname"/>
+    </resultMap>
+
+    <sql id="dvsColumns">
+        dsid,dsname
+    </sql>
+
+
+    <!--查询所有-->
+    <select id="selectDvs"
+            parameterType="com.team.page.PageBean"
+            resultMap="DvsMap">
+        SELECT
+        <include refid="dvsColumns"/>
+        FROM division
+        <if test="key != null and key != ''">
+            WHERE dsname LIKE '%${key}%'
+        </if>
+        limit #{startIndex},#{pageSize}
+    </select>
+    <select id="getTotalRecord"
+            resultType="java.lang.Integer">
+        SELECT COUNT(dsid) FROM division
+        <if test="value != null and value != ''">
+            WHERE dsname LIKE '%${value}%'
+        </if>
+    </select>
+
+
+
+
+</mapper>

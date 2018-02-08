@@ -74,7 +74,7 @@
                                               class="mini-buttonedit"
                                               allowInput="false"
                                               onbuttonclick="onClazzButtonEdit"
-                                              name="cid" textName="cname"/>
+                                              name="dsid" textName="cname"/>
                                    </td>
 
                                </tr>

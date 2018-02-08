@@ -73,8 +73,8 @@
                                        <input id="btnEdit2" style="width: 200%"
                                               class="mini-buttonedit"
                                               allowInput="false"
-                                              onbuttonclick="onClazzButtonEdit"
-                                              name="cid" textName="cname"/>
+                                              onbuttonclick="onDvsButtonEdit"
+                                              name="dsid" textName="dsname" text="${sessionScope.get("userd")}"/>
                                    </td>
 
                                </tr>
@@ -227,6 +227,28 @@
                     if (data) {
                         btnEdit.setValue(data.uid);
                         btnEdit.setText(data.username);
+                    }
+                }
+
+            }
+        })
+    }
+    function onDvsButtonEdit(e) {
+        //加载mini组件 后面的get方法才好用
+        var btnEdit = this;
+        mini.open({
+            url: "selectDvs",
+            title: "选择申请部门",
+            width: 650,
+            height: 380,
+            ondestroy: function (action) {
+                if (action == "ok") {
+                    var iframe = this.getIFrameEl();
+                    var data = iframe.contentWindow.GetData();
+                    data = mini.clone(data);
+                    if (data) {
+                        btnEdit.setValue(data.dsid);
+                        btnEdit.setText(data.dsname);
                     }
                 }
 
