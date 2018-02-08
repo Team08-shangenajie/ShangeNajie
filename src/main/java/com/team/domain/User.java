@@ -7,6 +7,15 @@ public class User {
     private int uid;
     private String username;
     private String password;
+    private Division division;
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
 
     public int getUid() {
         return uid;

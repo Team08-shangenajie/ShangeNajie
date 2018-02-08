@@ -2,8 +2,10 @@ package com.team.controller;
 
 import com.team.domain.BaseResult;
 import com.team.domain.Department;
+import com.team.domain.Division;
 import com.team.domain.User;
 import com.team.service.DepService;
+import com.team.service.DvsService;
 import com.team.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ public class MainController {
     private DepService depService;
     @Resource
     private UserService userService;
+    @Resource
+    private DvsService dvsService;
 
     @RequestMapping(value = "/home")
     public String home() {
@@ -33,7 +37,6 @@ public class MainController {
         if (login!=null){
             request.getSession().setAttribute("user",user);
             request.getSession().setAttribute("username",user.getUsername());
-            request.getSession().setAttribute("uid",user.getUid());
             return "home";
         }else {
             return "login";
@@ -49,6 +52,12 @@ public class MainController {
     @ResponseBody
     public BaseResult<Department> selectDep(int pageIndex, int pageSize, String key) {
         return depService.select(pageIndex, pageSize, key);
+    }
+
+    @RequestMapping(value = "/selectD")
+    @ResponseBody
+    public BaseResult<Division> selectDvs(int pageIndex, int pageSize, String key) {
+        return dvsService.selectDivision(pageIndex, pageSize, key);
     }
 
     @RequestMapping(value = "/welcome")
@@ -140,6 +149,12 @@ public class MainController {
     public String selectUser(){
         return "selectUser";
     }
+
+    @RequestMapping(value = "/selectDvs")
+    public String selectDvs(){
+        return "selectDvs";
+    }
+
 
     @RequestMapping(value = "/outRight")
     public String outRight(){
