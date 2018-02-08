@@ -17,7 +17,7 @@
 <body>
 <form id="select1" action="" method="post">
     <div style="width:100%;">
-        <div id="panel1" class="mini-panel" title="查询条件" iconCls="icon-hide" style="width:100%;height:60%;"
+        <div id="panel1" class="mini-panel" title="⬇️查询条件" iconCls="icon-hide" style="width:100%;height:60%;"
              showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
             <table>
                 <tr>
@@ -53,7 +53,7 @@
     </div>
 </form>
 <div id="datagrid1" class="mini-datagrid" style="width:100%;height:60%;" allowResize="true"
-     url="../data/AjaxService.aspx?method=SearchEmployees" idField="id" multiSelect="true">
+     idField="id" multiSelect="true">
     <div property="columns">
         <div type="checkcolumn"></div>
         <div field="loginname" width="120" headerAlign="center" allowSort="true">流程编号</div>

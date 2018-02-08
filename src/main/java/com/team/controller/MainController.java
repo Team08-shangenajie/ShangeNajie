@@ -33,6 +33,7 @@ public class MainController {
         if (login!=null){
             request.getSession().setAttribute("user",user);
             request.getSession().setAttribute("username",user.getUsername());
+            request.getSession().setAttribute("uid",user.getUid());
             return "home";
         }else {
             return "login";
@@ -153,6 +154,11 @@ public class MainController {
     @RequestMapping(value = "/personalWork")
     public String personalWork(){
         return "personalWork";
+    }
+
+    @RequestMapping(value = "/regist")
+    public String regist(){
+        return "regist";
     }
 
 }

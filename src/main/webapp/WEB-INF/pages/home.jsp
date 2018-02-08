@@ -37,10 +37,20 @@
 </head>
 <body>
 <div id="layout1" class="mini-layout" style="width:100%;height:100%"  borderStyle="border:solid 1px #aaa;">
-    <div title="采购监管平台系统" region="north" showSplitIcon="true"
-         style="background-color: #e8ecf6; background:-moz-linear-gradient(top,#b2d1f5,grey); float: left;width: 100%;height: 15px">
-        <span style="float: left"><h3>当前用户: ${sessionScope.user.username}</h3></span>
-        <button style="float: right">个人工作台</button>
+    <div title="采购监管平台系统" region="north" showSplitIcon="true" showheader="false"
+         style="float: left;width: 100%;height: 15px">
+        <img src="../../imgs/uphead.png" width="100%" height="100%" style="z-index: 0;position: absolute">
+        <img src="../../scripts/miniui/themes/icons/user.png" style="z-index: 1;position: absolute;left: 58%;top: 21%">
+        <span style="z-index: 1;position: absolute;left: 60%">
+            <h3>当前用户: [${sessionScope.user.uid}] ${sessionScope.user.username}</h3>
+        </span>
+        <img src="../../scripts/miniui/themes/icons/help.gif" style="z-index: 1;position: absolute;left: 72%;top: 21%">
+        <span style="z-index: 1;position: absolute;left: 73%;top: 19%;"><a href="">系统帮助</a></span>
+        <a href="/login" class="mini-button" img="../../scripts/miniui/res/images/system_close.gif" style="left:85%;z-index: 1;top: 20%;">退出</a>
+        <a href="/home" class="mini-button" img="../../scripts/miniui/res/images/house.png" style="left:90%;z-index: 1;top: 20%;">首页</a>
+        <a href="/personalCenter" class="mini-button" style="left:90%;z-index: 1;bottom: 10%;position: absolute;right: 1%;">个人工作台</a>
+
+
     </div>
     <div title="center" region="center"  >
         <div class="mini-splitter" style="width:99%;height:100%">
