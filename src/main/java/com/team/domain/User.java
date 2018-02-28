@@ -1,9 +1,11 @@
 package com.team.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by dllo on 18/2/7.
  */
-public class User {
+public class User  implements Serializable{
     private int uid;
     private String username;
     private String password;

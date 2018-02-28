@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--SSM 整合shiro时的配置-->
+    <!--1自定义Realm-->
+    <bean id="customerRealm"
+          class="com.team.shiro.CustomerRealm"/>
+    <!--2配置安全管理器对象-->
+    <bean id="securityManager"
+          class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!--引入自定义realm-->
+        <property name="realm" ref="customerRealm"/>
+    </bean>
+    <!--一下三个bean是站过去的-->
+    <bean id="lifecycleBeanPostProcessor"
+          class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!--开启shiro注解-->
+    <bean id="autoProxyCreator"
+          class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+
+    <bean id="sourceAdvisor"
+          class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!--Shiro过滤器-->
+    <bean id="shiroFilter"
+          class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--配置安全管理器-->
+        <property name="securityManager" ref="securityManager"/>
+        <!--身份认证失败 则跳转转到登录页面的设置-->
+        <property name="loginUrl" value="/login"/>
+        <!--授权失败认证 则跳转到指定页面-->
+        <property name="unauthorizedUrl" value="/unauthor"/>
+        <!--配置过滤规则-->
+        <property name="filterChainDefinitions">
+            <value>
+                <!--定义匿名访问的路径-->
+                /login=anon
+                /index=anon
+                <!--定义角色检查的路径-->
+                /user/home=roles[部门管理]
+                <!--定义需要认证的路径-->
+                /user/*=authc
+            </value>
+        </property>
+    </bean>
+</beans>
