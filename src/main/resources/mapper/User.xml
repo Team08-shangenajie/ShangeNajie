@@ -24,6 +24,21 @@
         SELECT <include refid="userColumns"/> FROM USER
         WHERE username= #{username}
     </select>
+
+    <select id="getRoles" parameterType="String" resultType="String">
+        select r.role_name
+        from t_user u,yj_role r
+        where u.role_id=r.role_id
+        and u.userName=#{userName}
+    </select>
+
+    <select id="getPermissions" parameterType="String" resultType="String">
+        select p.permission_name
+        from t_user u,yj_role r,yj_permission p
+        where u.role_id=r.role_id
+        and p.r_roleid=r.role_id
+        and u.userName=#{userName}
+    </select>
     <!--查询所有-->
     <select id="selectUser"
             parameterType="com.team.page.PageBean"

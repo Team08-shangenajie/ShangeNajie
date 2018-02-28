@@ -49,7 +49,12 @@
                 /css/*=anon
                 /imgs/*=anon
                 <!--定义角色检查的路径-->
-                /user/home=roles[部门管理]
+                /manageCon=roles[部门经理]
+                /engineer=roles[工程师]
+                /teamLeader=roles[评审小组长]
+                /stManage=roles[科技办经理]
+                /finance=roles[财务部]
+                /generalMan=roles[总经理]
                 <!--定义需要认证的路径-->
                 /user/*=authc
             </value>

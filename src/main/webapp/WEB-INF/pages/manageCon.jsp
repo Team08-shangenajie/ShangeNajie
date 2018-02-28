@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: dllo
@@ -53,6 +54,7 @@
 </head>
 <body>
 <h1>部门经理审核</h1>
+
 <form id="form">
     <div id="tabs1" style="width: 100%;height: 100%;border: 1px solid gainsboro" class="mini-tabs" activeIndex="0"
          plain="false">
@@ -111,10 +113,14 @@
                 </tr>
                 <tr>
                     <td id="choose" colspan="4">
-                        <a href="">驳回</a>
-                        <a href="">通过</a>
+                        <shiro:hasAnyRoles name="部门经理">
+                            <input type="button" value="驳回">
+                            <input type="button" value="通过">
+                            <br><br>
+                        </shiro:hasAnyRoles>
                     </td>
                 </tr>
+
             </table>
         </div>
     </div>

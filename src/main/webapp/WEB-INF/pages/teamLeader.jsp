@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: dllo
@@ -129,8 +130,11 @@
                 </tr>
                 <tr>
                     <td id="choose" colspan="4">
-                        <a href="">不推荐</a>
-                        <a href="">推荐</a>
+                        <shiro:hasAnyRoles name="评审小组长">
+                            <input type="button" value="推荐">
+                            <input type="button" value="不推荐">
+                            <br><br>
+                        </shiro:hasAnyRoles>
                     </td>
                 </tr>
             </table>
