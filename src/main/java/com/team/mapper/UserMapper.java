@@ -14,6 +14,7 @@ public interface UserMapper {
     List<User> selectUser(PageBean<User> pageBean);
 
     int getTotalRecord(String key);
+
     User selectByUserName(String userName);
 
     Set<String> getRoles(String userName);

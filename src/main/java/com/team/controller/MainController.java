@@ -7,11 +7,16 @@ import com.team.domain.User;
 import com.team.service.DepService;
 import com.team.service.DvsService;
 import com.team.service.UserService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -27,21 +32,49 @@ public class MainController {
     @Resource
     private DvsService dvsService;
 
+    @RequestMapping("/unauthor")
+    public String unauthor() {
+        return "unauthor";
+    }
     @RequestMapping(value = "/home")
     public String home() {
         return "home";
     }
+
     @RequestMapping(value = {"","/","/login"})
     public String login(User user, HttpServletRequest request){
-        User login = userService.login(user);
-        if (login!=null){
+//        User login = userService.login(user);
+//        if (login!=null){
+//            request.getSession().setAttribute("user",user);
+//            request.getSession().setAttribute("username",user.getUsername());
+//            return "home";
+//        }else {
+            return "login";
+//        }
+    }
+    //    处理登录表单 执行shiro认证
+    @RequestMapping("/submitLogin")
+    public String submitLogin(User user,HttpServletRequest request){
+        System.out.println("表单提交的参数为:" + user);
+//        shiro认证
+//        1获得当前的subject用户对象
+        Subject correntUser = SecurityUtils.getSubject();
+//        创建用户名 密码的token令牌
+        UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(),user.getPassword());
+//        3执行shiro认证
+        try {
+            correntUser.login(token);
             request.getSession().setAttribute("user",user);
             request.getSession().setAttribute("username",user.getUsername());
-            return "home";
-        }else {
+        }catch (AuthenticationException e){
+            e.printStackTrace();
+            System.out.println("认证失败返回登录界面");
             return "login";
         }
+
+        return "home";
     }
+
     @RequestMapping(value = "/selectU")
     @ResponseBody
     public BaseResult<User> selectUser(int pageIndex, int pageSize, String key) {

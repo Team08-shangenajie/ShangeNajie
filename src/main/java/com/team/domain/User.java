@@ -11,6 +11,15 @@ public class User  implements Serializable{
     private String password;
     private Division division;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public Division getDivision() {
         return division;
     }

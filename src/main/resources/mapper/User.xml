@@ -20,7 +20,10 @@
         SELECT <include refid="userColumns"/> FROM USER
         WHERE username= #{username}
     </select>
-
+    <select id="selectByUserName" parameterType="string" resultMap="userMap">
+        SELECT <include refid="userColumns"/> FROM USER
+        WHERE username= #{username}
+    </select>
     <!--查询所有-->
     <select id="selectUser"
             parameterType="com.team.page.PageBean"

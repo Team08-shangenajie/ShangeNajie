@@ -2,13 +2,11 @@ package com.team.shiro;
 
 import com.team.domain.User;
         import com.team.service.UserService;
-        import org.apache.shiro.authc.AuthenticationException;
-        import org.apache.shiro.authc.AuthenticationInfo;
-        import org.apache.shiro.authc.AuthenticationToken;
-        import org.apache.shiro.authc.SimpleAuthenticationInfo;
-        import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.AuthorizationInfo;
         import org.apache.shiro.authz.SimpleAuthorizationInfo;
-        import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.realm.AuthorizingRealm;
         import org.apache.shiro.subject.PrincipalCollection;
 
         import javax.annotation.Resource;
@@ -41,20 +39,20 @@ public class CustomerRealm extends AuthorizingRealm {
         return info;
     }
 
-//    认证 既对某个用户名进行身份认证
+
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-//        获取进行认证的用户名
-        String userName = (String) token.getCredentials();
-        String password = (String) token.getCredentials();
-//        2根据用户名查找用户
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+
+        UsernamePasswordToken token= (UsernamePasswordToken) authenticationToken;
+        String userName = token.getUsername();
         User user= userService.selectByUserName(userName);
-//        如果能查到 则返回一个认证器对象 否则返回null
         if (user != null){
-            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(),getName());
+            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(
+                    user.getUsername(),user.getPassword(),getName());
             return info;
         }
         return null;
 
     }
+
 }

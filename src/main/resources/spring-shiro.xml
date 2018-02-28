@@ -5,7 +5,10 @@
     <!--SSM 整合shiro时的配置-->
     <!--1自定义Realm-->
     <bean id="customerRealm"
-          class="com.team.shiro.CustomerRealm"/>
+
+          class="com.team.shiro.CustomerRealm">
+
+    </bean>
     <!--2配置安全管理器对象-->
     <bean id="securityManager"
           class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -40,6 +43,11 @@
                 <!--定义匿名访问的路径-->
                 /login=anon
                 /index=anon
+                <!--静态资源匿名访问-->
+                /scripts/*=anon
+                /js/*=anon
+                /css/*=anon
+                /imgs/*=anon
                 <!--定义角色检查的路径-->
                 /user/home=roles[部门管理]
                 <!--定义需要认证的路径-->

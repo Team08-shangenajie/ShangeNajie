@@ -17,7 +17,7 @@
     <img src="../../imgs/homeimg.png" height="100%" width="100%"/>
 </div>
 <div style="margin-left: 70%;margin-top: 20%;position: absolute">
-    <form action="login" method="post">
+    <form action="submitLogin" method="post">
         用户名:  <input type="text" name="username"><br>
         密  码:   <input type="password" name="password"><br>
         <input type="submit" value="登录">
