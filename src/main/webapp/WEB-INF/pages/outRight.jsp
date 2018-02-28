@@ -9,12 +9,20 @@
 
     <script src="../../scripts/boot.js" type="text/javascript"></script>
     <style type="text/css">
-        #submit {
-            text-align: right;
+        #input_other1, #input_other2, #input_other3, #input_other4 {
+            height: 22px;
+            background-color: white;
+            border-color: black;
+            border-style: solid;
+            border-top-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
+            border-left-width: 0px
         }
     </style>
 </head>
 <body>
+<h1 class="trTitle">当前位置: 承接外部科研项目申报</h1>
 <form id="select1" action="" method="post">
     <div style="width:100%;">
         <div id="panel1" class="mini-panel" title="⬇️项目基本信息" iconCls="icon-hide" style="width:100%;height:60%;"
@@ -28,10 +36,25 @@
                     <tr>
                         <td style="width:120px">项目来源<font color="red">※</font></td>
                         <td>
-                            <input type="radio" value="政府部门">
-                            <input type="radio" value="行业协会">
-                            <input type="radio" value="集团">
-                            <input type="radio" value="其他">
+                            <div id="div_other1" name="product" class="mini-checkbox" text="政府部门" checked="false"
+                                 onvaluechanged="changeOther1">
+                            </div>
+                            <input id="input_other1" type="text" disabled="disabled" value="">
+
+                            <div id="div_other2" name="product" class="mini-checkbox" text="行业协会" checked="false"
+                                 onvaluechanged="changeOther2">
+                            </div>
+                            <input id="input_other2" type="text" disabled="disabled" value="">
+
+                            <div id="div_other3" name="product" class="mini-checkbox" text="集团" checked="false"
+                                 onvaluechanged="changeOther3">
+                            </div>
+                            <input id="input_other3" type="text" disabled="disabled" value="">
+
+                            <div id="div_other4" name="product" class="mini-checkbox" text="其他" checked="false"
+                                 onvaluechanged="changeOther4">
+                            </div>
+                            <input id="input_other4" type="text" disabled="disabled" value="">
                         </td>
                     </tr>
                     <tr>
@@ -47,7 +70,7 @@
         </div>
     </div>
     <div style="width:100%;">
-        <div id="panel1" class="mini-panel" title="⬇️项目成果" iconCls="icon-hide" style="width:100%;height:60%;"
+        <div id="panel2" class="mini-panel" title="⬇️项目成果" iconCls="icon-hide" style="width:100%;height:60%;"
              showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
             <table>
                 <tr>
@@ -74,7 +97,7 @@
         </div>
     </div>
     <div style="width:100%;">
-        <div id="panel1" class="mini-panel" title="⬇️预算信息" iconCls="icon-hide" style="width:100%;height:60%;"
+        <div id="panel3" class="mini-panel" title="⬇️预算信息" iconCls="icon-hide" style="width:100%;height:60%;"
              showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
             <table>
                 <tr>
@@ -91,7 +114,7 @@
         </div>
     </div>
     <div style="width:100%;">
-        <div id="panel1" class="mini-panel" title="⬇️流程信息" iconCls="icon-hide" style="width:100%;height:60%;"
+        <div id="panel4" class="mini-panel" title="⬇️流程信息" iconCls="icon-hide" style="width:100%;height:60%;"
              showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
             <table>
                 <tr>
@@ -104,7 +127,9 @@
             </table>
         </div>
     </div>
+    <input id="btn" type="submit" value="提交">
 </form>
+
 
 
 <script type="text/javascript">
@@ -121,11 +146,39 @@
     function onKeyEnter(e) {
         search();
     }
-    /////////////////////////////////////////////////
-    function onBirthdayRenderer(e) {
-        var value = e.value;
-        if (value) return mini.formatDate(value, 'yyyy-MM-dd');
-        return "";
+
+
+    function changeOther1(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other1").disabled = "";
+        } else {
+            document.getElementById("input_other1").disabled = "disabled";
+        }
+    }
+    function changeOther2(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other2").disabled = "";
+        } else {
+            document.getElementById("input_other2").disabled = "disabled";
+        }
+    }
+    function changeOther3(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other3").disabled = "";
+        } else {
+            document.getElementById("input_other3").disabled = "disabled";
+        }
+    }
+    function changeOther4(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other4").disabled = "";
+        } else {
+            document.getElementById("input_other4").disabled = "disabled";
+        }
     }
 
 

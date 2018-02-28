@@ -9,6 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <spring-version>4.3.8.RELEASE</spring-version>
+    <activiti.version>6.0.0</activiti.version>
   </properties>
 
   <dependencies>
@@ -23,11 +24,31 @@
       <artifactId>spring-webmvc</artifactId>
       <version>${spring-version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <version>${spring-version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.5</version>
+    </dependency>
+
     <dependency>
       <groupId>jstl</groupId>
       <artifactId>jstl</artifactId>
@@ -55,11 +76,7 @@
       <version>1.2.17</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>3.4.5</version>
-    </dependency>
+
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
@@ -75,11 +92,7 @@
       <artifactId>commons-dbcp</artifactId>
       <version>1.4</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>${spring-version}</version>
-    </dependency>
+
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
@@ -97,6 +110,39 @@
       <artifactId>jxl</artifactId>
       <version>2.6</version>
     </dependency>
+
+    <!-- activiti BEGIN -->
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-engine</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-bpmn-model</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-bpmn-converter</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-process-validation</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-bpmn-layout</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-spring</artifactId>
+      <version>${activiti.version}</version>
+    </dependency>
+    <!-- activiti END -->
   </dependencies>
   <build>
     <finalName>sgnj</finalName>

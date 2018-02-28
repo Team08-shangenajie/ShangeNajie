@@ -1,195 +1,193 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dllo
-  Date: 18/1/18
-  Time: 下午7:15
-  To change this template use File | Settings | File Templates.
---%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../../css/demo.css">
+    <title>综合查询</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href="../../css/demo.css" rel="stylesheet" type="text/css"/>
 
     <script src="../../scripts/boot.js" type="text/javascript"></script>
-    <script src="../../swfupload/swfupload.js" type="text/javascript"></script>
-    <script src="../../js/ajaxfileupload.js" type="text/javascript"></script>
-    <script src="../../js/jquery.cookie.js" type="text/javascript"></script>
-
     <style type="text/css">
-        * {
-            font-size: 15px;
-        }
 
-        .table1 {
-            width: 100%;
-            margin: 1px;
-            border: 1px solid gainsboro;
-        }
 
-        td {
-            border-collapse: collapse;
-            padding: 3px;
-            height: 25px;
-        }
-
-        .trTitle {
-            background-color: #daeeff;
-            color: #427dc0;
-        }
-
-        input {
-            height: 20px;
-            text-align: center;
-            vertical-align: text-bottom;
-        }
-
-        #choose {
-            text-align: right;
+        #input_other1, #input_other2, #input_other3, #input_other4 {
+            height: 22px;
+            background-color: white;
+            border-color: black;
+            border-style: solid;
+            border-top-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
+            border-left-width: 0px
         }
     </style>
 </head>
 <body>
-<h1>总经理审批</h1>
-<form id="form">
-    <div id="tabs1" style="width: 100%;height: 100%;border: 1px solid gainsboro" class="mini-tabs" activeIndex="0"
-         plain="false">
-        <div title="项目基本信息">
-            <table cellpadding="1" cellspacing="2" class="table1">
+<h1 class="trTitle">当前位置: 承接外部科研项目申报</h1>
+<form id="select1" action="" method="post">
+    <div style="width:100%;">
+        <div id="panel1" class="mini-panel" title="⬇️项目基本信息" iconCls="icon-hide" style="width:100%;height:60%;"
+             showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
+            <table>
+                <table>
+                    <tr>
+                        <td style="width:120px">项目名称<font color="red">※</font></td>
+                        <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px">项目来源<font color="red">※</font></td>
+                        <td>
+                            <div id="div_other1" name="product" class="mini-checkbox" text="政府部门" checked="false"
+                                 onvaluechanged="changeOther1">
+                            </div>
+                            <input id="input_other1" type="text" disabled="disabled" value="">
+
+                            <div id="div_other2" name="product" class="mini-checkbox" text="行业协会" checked="false"
+                                 onvaluechanged="changeOther2">
+                            </div>
+                            <input id="input_other2" type="text" disabled="disabled" value="">
+
+                            <div id="div_other3" name="product" class="mini-checkbox" text="集团" checked="false"
+                                 onvaluechanged="changeOther3">
+                            </div>
+                            <input id="input_other3" type="text" disabled="disabled" value="">
+
+                            <div id="div_other4" name="product" class="mini-checkbox" text="其他" checked="false"
+                                 onvaluechanged="changeOther4">
+                            </div>
+                            <input id="input_other4" type="text" disabled="disabled" value="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px">申报单位<font color="red">※</font></td>
+                        <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
+                    </tr>
+                    <tr>
+                        <td style="width:120px">应用方向<font color="red">※</font></td>
+                        <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
+                    </tr>
+                </table>
+            </table>
+        </div>
+    </div>
+    <div style="width:100%;">
+        <div id="panel2" class="mini-panel" title="⬇️项目成果" iconCls="icon-hide" style="width:100%;height:60%;"
+             showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
+            <table>
                 <tr>
-                    <td class="trTitle" colspan="4">项目基本信息</td>
-                </tr>
-                <tr>
-                    <td style="width:120px">项目名称</td>
+                    <td style="width:120px">成果应用<font color="red">※</font></td>
                     <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
-                    <td style="width:120px">项目申报单位</td>
-                    <td><input id="btnEdit2" style="width: 100%"
-                               class="mini-buttonedit"
-                               allowInput="false"
-                               onbuttonclick="onClazzButtonEdit"
-                               name="cid" textName="cname"/>
-                    </td>
-                    <td style="width:120px">联合申报单位</td>
-                    <td><input id="btnEdit3" style="width: 100%"
-                               class="mini-buttonedit"
-                               allowInput="false"
-                               onbuttonclick="onClazzButtonEdit"
-                               name="cid" textName="cname"/>
-                    </td>
+                    <td style="width:120px">产品形式<font color="red">※</font></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
-                    <td style="width:120px">目的</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
+                    <td style="width:120px">预计知识产权<font color="red">※</font></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
-                    <td class="trTitle" colspan="4" style="width:100px">与核电生产运营安全性、可靠性、经济的适应分析</td>
+                    <td style="width:120px">预计经济效益<font color="red">※</font></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
                 <tr>
-                    <td style="width:120px">安全性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
-                    <td style="width:120px">可靠性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
+                    <td style="width:120px">形成固定资产<font color="red">※</font></td>
+                    <td colspan="3"><input style="width: 100%;height: 25px;" class="mini-textarea"/></td>
                 </tr>
+            </table>
+        </div>
+    </div>
+    <div style="width:100%;">
+        <div id="panel3" class="mini-panel" title="⬇️预算信息" iconCls="icon-hide" style="width:100%;height:60%;"
+             showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
+            <table>
                 <tr>
-                    <td style="width:120px">经济性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
-                    <td style="width:120px">其他</td>
+                    <td style="width:120px">总预算 <font color="red">※</font></td>
+                    <td><input style="width: 100%;" type="text" class="mini-textarea"/></td>
+                    <td style="width:120px">外部经费 <font color="red">※</font></td>
                     <td><input style="width: 100%" class="mini-textarea"/></td>
                 </tr>
                 <tr>
-                    <td class="trTitle" colspan="4" style="width:100px">工程师评审意见</td>
-                </tr>
-                <tr>
-                    <td style="width:120px">评审结果</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td>立项报告书</td>
-                    <td><a href="">立项报告书</a></td>
-                </tr>
-
-
-                <tr>
-                    <td class="trTitle" colspan="4" style="width:100px">技术可行性分析意见</td>
-                </tr>
-                <tr>
-                    <td>对阳江公司科技发展规划的符合性审定</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td>对项目成果的应用领域评价</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td>总体评价</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td class="trTitle" colspan="4" style="width:100px">科技办经理审批信息</td>
-                </tr>
-                <tr>
-                    <td>要求</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td>建议</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
-                </tr>
-                <tr>
-                    <td class="trTitle" colspan="4" style="width:100px">审批意见</td>
-                </tr>
-                <tr>
-                    <td>审批意见</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
-                    <td>常用词条</td>
+                    <td style="width:120px">公司经费 <font color="red">※</font></td>
                     <td><input style="width: 100%" class="mini-textarea"/></td>
                 </tr>
+            </table>
+        </div>
+    </div>
+    <div style="width:100%;">
+        <div id="panel4" class="mini-panel" title="⬇️流程信息" iconCls="icon-hide" style="width:100%;height:60%;"
+             showToolbar="true" showFooter="true" allowResize="true" collapseOnTitleClick="true">
+            <table>
                 <tr>
-                    <td id="choose" colspan="4">
-                        <a href="">不通过</a>
-                        <a href="">通过</a>
+                    <td>审批(部门经理)<font color="red">※</font></td>
+                    <td>
+                        <input id="btnEdit1" class="mini-buttonedit" onbuttonclick="onButtonEdit" name="a" textName="b"
+                               required="required">
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <div style="text-align: right">
+        <button onclick="">不同意</button>
+        <button onclick="">同意</button>
+    </div>
 </form>
 
-<script>
+
+
+<script type="text/javascript">
     mini.parse();
 
-    function getForm() {
-        var form = new mini.Form("#form");
-        var data = form.getData();
-        var s = mini.encode(data);
-        return s;
+    var grid = mini.get("datagrid1");
+    grid.load();
+
+
+    function search() {
+        var key = mini.get("key").getValue();
+        grid.load({key: key});
+    }
+    function onKeyEnter(e) {
+        search();
     }
 
-    function submitForm() {
-        /**
-         * 1.获得基本信息tab中的数据,cookies取
-         * 2.获得当前其他信息tab中的数据,直接获取当前表单
-         * 3.将数据传递给后台
-         */
-        var data = getForm();
-        $("#form").val(data);
 
-        $.ajaxFileUpload({
-            url: "fileUploac.action",
-            fileElementId: "${"upload"}",
-            success: function (d) {
 
-            }
-
-        })
+    function changeOther1(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other1").disabled = "";
+        } else {
+            document.getElementById("input_other1").disabled = "disabled";
+        }
     }
+    function changeOther2(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other2").disabled = "";
+        } else {
+            document.getElementById("input_other2").disabled = "disabled";
+        }
+    }
+    function changeOther3(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other3").disabled = "";
+        } else {
+            document.getElementById("input_other3").disabled = "disabled";
+        }
+    }
+    function changeOther4(e) {
+        var checked = this.getChecked();
+        if (checked == true) {
+            document.getElementById("input_other4").disabled = "";
+        } else {
+            document.getElementById("input_other4").disabled = "disabled";
+        }
+    }
+
 
 </script>
 </body>
 </html>
-
-

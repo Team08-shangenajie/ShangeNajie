@@ -51,7 +51,7 @@
     </style>
 </head>
 <body>
-<h1>财务部审批</h1>
+<h1 class="trTitle">当前位置: 科研项目申报与评审 >> 财务部审批</h1>
 <form id="form">
     <div id="tabs1" style="width: 100%;height: 100%;border: 1px solid gainsboro" class="mini-tabs" activeIndex="0"
          plain="false">

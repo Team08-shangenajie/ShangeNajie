@@ -50,6 +50,7 @@
             float: left;
             display: inline;
         }
+
         #input_other {
             height: 22px;
             background-color: white;
@@ -63,7 +64,7 @@
     </style>
 </head>
 <body>
-
+<h1 class="trTitle">当前位置: 科研项目申报与评审</h1>
 <form id="form">
     <div id="tabs1" style="width: 100%;height: 100%;border: 1px solid gainsboro" class="mini-tabs" activeIndex="0"
          plain="false">
@@ -236,8 +237,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input id="btn" type="button" value="提交" onclick="submitContent()">
+                    <td class="trTitle" style="width: 100%;text-align: center" colspan="4">
+                        <input type="submit" onclick="submitForm()" value="提交">
                     </td>
                 </tr>
             </table>
@@ -269,29 +270,7 @@
             }
         })
     }
-    function onStudentButtonEdit(e) {
-        //加载mini组件 后面的get方法才好用
-        var btnEdit = this;
-        mini.open({
-            url: "page/SelectStudent.html",
-            title: "选择联合申报单位",
-            width: 650,
-            height: 380,
-            ondestroy: function (action) {
-                //if (action == "close") return false;
-                if (action == "ok") {
-                    var iframe = this.getIFrameEl();
-                    var data = iframe.contentWindow.GetData();
-                    data = mini.clone(data);    //必须
-                    if (data) {
-                        btnEdit.setValue(data.sid);
-                        btnEdit.setText(data.sname);
-                    }
-                }
 
-            }
-        })
-    }
     function onButtonEdit(e) {
         //加载mini组件 后面的get方法才好用
         var btnEdit = this;
@@ -301,11 +280,10 @@
             width: 650,
             height: 380,
             ondestroy: function (action) {
-                //if (action == "close") return false;
                 if (action == "ok") {
                     var iframe = this.getIFrameEl();
                     var data = iframe.contentWindow.GetData();
-                    data = mini.clone(data);   
+                    data = mini.clone(data);
                     if (data) {
                         btnEdit.setValue(data.depId);
                         btnEdit.setText(data.depName);
@@ -342,7 +320,7 @@
         $("#form").val(data);
 
         $.ajaxFileUpload({
-            url: "fileUploac.action",
+            url: "fileUpload.action",
             fileElementId: "${"upload"}",
             success: function (d) {
             }
