@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dllo on 18/2/6.
@@ -20,6 +21,21 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+
+    @Override
+    public User selectByUserName(String userName) {
+        return userMapper.selectByUserName(userName);
+    }
+
+    @Override
+    public Set<String> getRoles(String userName) {
+        return userMapper.getRoles(userName);
+    }
+
+    @Override
+    public Set<String> getPermissions(String userName) {
+        return userMapper.getPermissions(userName);
+    }
 
     @Override
     public User login(User user) {
