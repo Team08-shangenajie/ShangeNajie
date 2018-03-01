@@ -142,7 +142,7 @@
                 <tr>
                     <td id="choose" colspan="4">
                         <shiro:hasAnyRoles name="财务部">
-                            <input type="button" value="推荐">
+                            <a href="personalCenter">推荐</a>
                             <input type="button" value="不推荐">
                             <br><br>
                         </shiro:hasAnyRoles>

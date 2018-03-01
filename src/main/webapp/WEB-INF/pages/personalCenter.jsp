@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: dllo
@@ -36,6 +37,8 @@
     </style>
 </head>
 <body>
+
+
 <div id="tabs1" class="mini-tabs" activeIndex="0" style="width:100%;height:100%;" plain="false">
     <div title="待办任务" >
         <table cellpadding="1" cellspacing="2" class="table1">
@@ -100,7 +103,11 @@
                             <div header="当前环节" field="step"></div>
                             <div header="提报人" field="person"></div>
                             <div header="提报时间" field="time"></div>
-                            <div header="操作" field="ctrl"></div>
+                            <div header="操作" field="ctrl">
+                                <shiro:hasAnyRoles name="财务部">
+                                    <a href="stManage.jsp">办理</a>
+                                </shiro:hasAnyRoles>
+                            </div>
                         </div>
                     </div>
                 </td>
@@ -201,6 +208,8 @@
 <script type="text/javascript">
     mini.parse();
 
+
+
     function onTabPositionChange(value) {
         var tabs = mini.get("tabs1");
         tabs.setTabPosition(value);
@@ -255,6 +264,7 @@
             }
         })
     }
+
 
 </script>
 </body>

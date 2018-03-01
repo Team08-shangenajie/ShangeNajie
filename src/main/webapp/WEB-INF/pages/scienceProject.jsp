@@ -64,7 +64,7 @@
 </head>
 <body>
 
-<form id="form">
+<form id="form" action="submitInfor">
     <div id="tabs1" style="width: 100%;height: 100%;border: 1px solid gainsboro" class="mini-tabs" activeIndex="0"
          plain="false">
         <%--基本信息TAB--%>
@@ -102,13 +102,13 @@
                 </tr>
                 <tr>
                     <td style="width:120px">安全性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
+                    <td><input style="width: 100%" class="mini-textarea" name="SAFE_DESC"/></td>
                     <td style="width:120px">可靠性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
+                    <td><input style="width: 100%" class="mini-textarea" name="RELIABLE_DESC"/></td>
                 </tr>
                 <tr>
                     <td style="width:120px">经济性</td>
-                    <td><input style="width: 100%" class="mini-textarea"/></td>
+                    <td><input style="width: 100%" class="mini-textarea" name="ECON_DESC"/></td>
                     <td style="width:120px">其他</td>
                     <td><input style="width: 100%" class="mini-textarea"/></td>
                 </tr>
@@ -117,7 +117,7 @@
                 </tr>
                 <tr>
                     <td style="width:120px">成果应用</td>
-                    <td colspan="3"><input style="width: 100%" class="mini-textarea"/></td>
+                    <td colspan="3"><input style="width: 100%" class="mini-textarea" name="ACHIEVEMENT_DESC"/></td>
                 </tr>
                 <tr>
                     <td style="width:120px">实际用户</td>
@@ -236,8 +236,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input id="btn" type="button" value="提交" onclick="submitContent()">
+                    <td class="trTitle" style="width: 100%;text-align: center" colspan="4">
+                        <input type="submit" value="提交">
                     </td>
                 </tr>
             </table>

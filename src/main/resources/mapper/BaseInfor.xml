@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.mapper.BaseInforMapper">
+    <insert id="submitInfor" parameterType="com.team.domain.BaseInfor">
+        INSERT INTO rdms_proj_base(PROJ_NAME,APP_ORG_NAME,UNITE_APP_ORG_NAME,PURPOSE,
+        SAFE_DESC,RELIABLE_DESC,ECON_DESC,OTHER_DESC,ACHIEVEMENT_DESC,REAL_USER,POTENTIAL_USER,
+        CYCLE,CONTENT,TOTAL_BUDGET,COMPANY_FUNDS,EXTERNAL_FUNDS,STATE_FUNDS,PRIME_USER_DESC,
+        PROJ_TYPE,RIGHT_DESC,BENEFITS_DESC,FIXED_ASSETS,ACCEPT_STAND,ENTRY_REPORT,
+        APPROVAL_MANAGER) VALUES (#{PROJ_NAME},#{APP_ORG_NAME},#{UNITE_APP_ORG_NAME},#{PURPOSE},
+        #{SAFE_DESC},#{RELIABLE_DESC},#{ECON_DESC},#{OTHER_DESC},#{ACHIEVEMENT_DESC},#{REAL_USER},
+        #{POTENTIAL_USER},#{CYCLE},#{CONTENT},#{TOTAL_BUDGET},#{COMPANY_FUNDS},#{EXTERNAL_FUNDS},
+        #{STATE_FUNDS},#{PRIME_USER_DESC},#{PROJ_TYPE},#{RIGHT_DESC},#{BENEFITS_DESC},#{FIXED_ASSETS},
+        #{ACCEPT_STAND},#{ENTRY_REPORT},#{APPROVAL_MANAGER})
+    </insert>
+</mapper>

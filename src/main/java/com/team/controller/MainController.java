@@ -1,9 +1,7 @@
 package com.team.controller;
 
-import com.team.domain.BaseResult;
-import com.team.domain.Department;
-import com.team.domain.Division;
-import com.team.domain.User;
+import com.team.domain.*;
+import com.team.service.BaseInforService;
 import com.team.service.DepService;
 import com.team.service.DvsService;
 import com.team.service.UserService;
@@ -31,6 +29,8 @@ public class MainController {
     private UserService userService;
     @Resource
     private DvsService dvsService;
+    @Resource
+    private BaseInforService baseInforService;
 
     @RequestMapping("/unauthor")
     public String unauthor() {
@@ -42,15 +42,8 @@ public class MainController {
     }
 
     @RequestMapping(value = {"","/","/login"})
-    public String login(User user, HttpServletRequest request){
-//        User login = userService.login(user);
-//        if (login!=null){
-//            request.getSession().setAttribute("user",user);
-//            request.getSession().setAttribute("username",user.getUsername());
-//            return "home";
-//        }else {
+    public String login(User user,HttpServletRequest request){
             return "login";
-//        }
     }
     //    处理登录表单 执行shiro认证
     @RequestMapping("/submitLogin")
@@ -71,8 +64,13 @@ public class MainController {
             System.out.println("认证失败返回登录界面");
             return "login";
         }
-
         return "home";
+    }
+
+    @RequestMapping(value = "/submitInfor")
+    public String submitInfor(BaseInfor baseInfor){
+        baseInforService.submitInfor(baseInfor);
+        return "personalCenter";
     }
 
     @RequestMapping(value = "/selectU")
@@ -208,5 +206,6 @@ public class MainController {
     public String regist(){
         return "regist";
     }
+
 
 }
